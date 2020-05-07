@@ -9,20 +9,45 @@ $(document).ready(function () {
   var currentTime = moment().format('h:mm:ss a');
   $("#currentTime").text(currentTime);
 
+  var currentHour = moment().format('H');
+  console.log(currentHour);
+
 // save entry into local storage
-  $("#btnSubmit1").on("click", function() {
-    var userText = $("#entry5").val();
-    localStorage.setItem("data5", JSON.stringify({ task: userText}));
+  $(".btnSubmit1").on("click", function() {
+    var userText = $(".entry5").val();
+    localStorage.setItem("data5am", JSON.stringify({ task: userText}));
     console.log("hello");
   });
     
-
-
-//     var entry = $(".entry").val();
+  var saved = JSON.parse(localStorage.getItem('data5am'));
+  console.log(saved.task);
+  $(".entry5").val(saved.task);
 //     localStorage.setItem("entry", entry);
 //   });
 
-
+for (var i = 0; i < 12; i++) {
+  currentHour = parseInt(currentHour);
+  console.log(typeof currentHour);
+  console.log(currentHour);
+  console.log(14 < currentHour);
+  console.log(14 === currentHour);
+  console.log(14 > currentHour);
+  if (14 < currentHour) {
+    // make the background of the div gray
+    $(".entry5").addClass("past");
+    // bkgrnd-color gray;
+  }
+  if (14 === currentHour){
+    console.log("hi");
+    // make the background of the div blue
+    $(".entry5").addClass("present");
+    // bkgrnd-color blue;
+    // make the background of the div green
+  }
+  if (14 > currentHour) {
+    $(".entry5").addClass("future");
+  }
+};
 
 
 
@@ -50,13 +75,5 @@ $(document).ready(function () {
 //   // If the time is greater than current, it is future
 //   // If time is equal to current, it is present
 
-//   // if (time < currentHour) {
-//   //   // make the background of the div gray
-//   //   // bkgrnd-color gray;
-//   // } else if (time = currentHour){
-//   //   // make the background of the div blue
-//   //   // bkgrnd-color blue;
-//   //   // make the background of the div green
-//   // } else ;
-//   //   // bkgrnd-color green
+
   });
