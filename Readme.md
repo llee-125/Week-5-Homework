@@ -2,9 +2,9 @@
 A simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 ## Outstanding Problems 
-- Moment time if statement so rows change color depending on current time.
-- Local storage problems, only saves first edit.
-- More formatting, if time allows.
+- Weird code at line 21 to confirm local storage save.
+- Check if/else and for loop for correctness.
+
 
 ## Motivation
 Let's get organized and plan our day.
