@@ -4,8 +4,17 @@ body {
   line-height: 1;
 }
 
+h3 {
+  margin-top: 50px;
+  color: #06AED5;
+}
+h4 {
+  font-size: 20px;
+}
+
 textarea{
   background: transparent;
+  /* add line length */
   border: none;
   resize: none;
   color: #06AED5;
