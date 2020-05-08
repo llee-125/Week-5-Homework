@@ -163,28 +163,31 @@ $(".btnSubmit19").on("click", function() {
 })
 var saved = JSON.parse(localStorage.getItem('data11pm'));
 $(".entry11p").val(saved.task);
+updateRow()
 
+// Got stuck here trying to make this loop through and change row colors depending on currentHour...
 
+var textarea = $("textarea");
 
-
-
+function updateRow(textarea, currentHour){
   // for loop to set background colors comparing time
-for (var i = 0; i < 13; i++) {
+  for (var i = 0; i < 13; i++) {
+  
+    if (14 < currentHour) {
+      textarea.attr("class", "past")
+      // make the background of the div gray
+      // bkgrnd-color gray;
+    }
+    if (14 === currentHour){
+      textarea.attr("class", "present")
+      // make the background of the div blue
 
-  if (14 < currentHour) {
-    // make the background of the div gray
-    $(".entry5a").addClass("past");
-    // bkgrnd-color gray;
-  }
-  if (14 === currentHour){
-    console.log("hi");
-    // make the background of the div blue
-    $(".entry5a").addClass("present");
-    // bkgrnd-color blue;
-    // make the background of the div green
-  }
-  if (14 > currentHour) {
-    $(".entry5a").addClass("future");
-  }
+      // bkgrnd-color blue;
+      // make the background of the div green
+    }
+    if (14 > currentHour) {
+      textarea.attr("class", "future")
+    }
+  };
 };
-  });
+});
